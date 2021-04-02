@@ -1,0 +1,16 @@
+<br><br><br>
+  <legend style="color:black;font-weight:bold;">Section E. Delete with Condition</legend>
+
+  <form>
+    <div *ngIf="descObjectBonus != undefined" class="form-group">
+      <label>Description</label>
+      <input type="text" id="desc" [(ngModel)]="descObjectBonus.description" name="desc">
+      <p></p>
+      <input type="submit" value="Delete with condition" (click)="deleteDescriptionBonus()">
+    </div>
+  </form>
+
+  <!-- Delete record by description ends  -->
+
+  <legend style="color:black;font-weight:bold;">Section F. Delete Duplicate</legend>
+  <input type="submit" value="DeleteDuplicate" (click)="deleteDuplicate()">

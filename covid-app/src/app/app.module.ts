@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog.service';
 import { HelloComponent } from './hello/hello.component';
+import { MiningComponent } from './mining/mining.component';
+import { BonusComponent } from './bonus/bonus.component';
+import { CovidDeleteComponent } from './covid-delete/covid-delete.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HelloComponent } from './hello/hello.component';
     HeaderComponent,
     HomeComponent,
     ConfirmationDialogComponent,
-    HelloComponent
+    HelloComponent,
+    MiningComponent,
+    BonusComponent,
+    CovidDeleteComponent
   ],
   imports: [
     FormsModule,

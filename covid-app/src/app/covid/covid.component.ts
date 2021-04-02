@@ -4,7 +4,6 @@ import { CovidApiService } from '../covidapi.service';
 import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 import { GlobalConstants } from 'src/environments/GlobalConstants';
 import { GlobalMethods } from 'src/environments/GlobalMethods';
-import { CovidCasesDesc } from 'src/model/CovidCasesDesc';
 
 @Component({
   selector: 'app-covid',
@@ -26,6 +25,10 @@ export class CovidComponent implements OnInit {
 
   public updateDesc: any;
 
+  public postDesc: any;
+
+  public deleteDescSoap: any;
+
   constructor(
     private httpClient: HttpClient,
     public covidApiService: CovidApiService,
@@ -36,11 +39,13 @@ export class CovidComponent implements OnInit {
   ngOnInit(): void {
     this.descObject = {};
     this.updateDesc = {};
+    this.postDesc = {};
+    
     this.getCovid();
     this.getCovidDesc();
 
     console.log("Covid Component Inited");
-    console.log("Total of Description Column Row --->" + this.descObject.length);
+   
   }
 
   getCovid(): any {
@@ -61,6 +66,7 @@ export class CovidComponent implements OnInit {
     this.covidApiService.getCovidDesc().subscribe((data: any) => {
       console.log(data);
       this.covidTotalDesc = data;
+      console.log("Total of Description Column Row --->" + this.covidTotalDesc.length);
     });
 
     return this.covidTotalDesc;
@@ -119,4 +125,23 @@ export class CovidComponent implements OnInit {
         this.getCovidDesc();
       });
   }
+
+  post() {
+
+    this.covidApiService.postDesc(this.postDesc).then(
+      resolve => {
+        this.getCovidDesc();
+      });
+  }
+
+  deleteSoap() {
+   
+   console.log("deleteSoap here"); 
+
+   this.covidApiService. deletesoap(this.deleteDescSoap).then(
+    resolve => {
+      this.getCovidDesc();
+    });
+}
+
 }

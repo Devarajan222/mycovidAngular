@@ -27,8 +27,6 @@ export class HelloComponent implements OnInit {
 
     // initialize by call the component method here. 
 
-    // this.getBasicHello();
-    // this.getBasicHelloSubscribe();
   }
 
   hello: string = 'hello world';
@@ -82,7 +80,7 @@ export class HelloComponent implements OnInit {
 
           // this line below will be executed only after HTTP response is completed
           this.hello = this.helloService.loggingData;
-        });;
+        });
   }
 
   public getLoggingWithoutPromiseThen() {
